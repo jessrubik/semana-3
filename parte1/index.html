@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aplic. Web de jQuery Mobile</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+       
+       
+</head> 
+<body> 
+
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>Clase 4</h1>
+	</div>
+	<div data-role="content">	
+		<ul data-role="listview">
+			<li><a href="#page2">Primer programa</a></li>
+            <li><a href="#page3">Segundo programa</a></li>
+			<li><a href="#page4">Tercer programa</a></li>
+            
+            
+		</ul>		
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page2">
+	<div data-role="header">
+		<h1>Página dos</h1>
+	</div>
+	<div data-role="content">	
+		<h1> Hola mundo</h1>
+<p id="texto">JavaScript puede cambiar el estilo de un elemento HTML.</p>
+
+<script>
+function myFunction(){
+	document.getElementById("texto").style.fontSize="25px";
+	document.getElementById("texto").style.color="yellow";
+	document.getElementById("texto").style.backgroundColor="green";
+}
+</script>
+<button type="button" onClick="myFunction()">Click Me!</button>		
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page3">
+	<div data-role="header">
+		<h1>Segundo programa JavaScrip</h1>
+	</div>
+	<div data-role="content">	
+	<p>JavaScript puede cambiar un elemento HTML.</p>	
+    <button type="button" onClick="myFunction()">Da click</button>
+    <p id="demo">Hola Mundo</p>
+    <script>
+    function myFunction(){
+    document.getElementById("demo").innerHTML="Hello World!";
+	}</script>	
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+<script>
+		$(document).on("pagecreate","page4",function(){
+			$("p").("tap",function (){
+				$(this).hide();
+			});
+		});
+</script>
+<div data-role="page" id="page4">
+	<div data-role="header">
+		<h1>The Tap event</h1>
+	</div>
+	<div data-role="main" class="ui-content">	
+		<p>If you tap me, I will disapear.</p>
+        <p>Tap me away!</p>
+        <p>Tap me too!</p>
+        
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+
+
+</body>
+</html>

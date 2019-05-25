@@ -1,0 +1,219 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aplic. Web de jQuery Mobile</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>Página uno</h1>
+	</div>
+	<div data-role="content">	
+		<ul data-role="listview">
+			<li><a href="#page2">Primer programa</a></li>
+            <li><a href="#page3">Segundo programa</a></li>
+			<li><a href="#page4">Tercer programa</a></li>
+            <li><a href="#page5">Cuarto programa</a></li>
+            <li><a href="#page6">Quinto programa</a></li>
+            <li><a href="#page7">Sexto programa</a></li>
+		</ul>		
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page2">
+	<div data-role="header">
+		<h1>Cambiar estilo</h1>
+	</div>
+	<div data-role="content">	
+		<h1> Hola mundo</h1>
+<p id="texto1">JavaScript puede cambiar el estilo de un elemento HTML.</p>
+
+<script>
+function myFunction1(){
+	document.getElementById("texto1").style.fontSize="25px";
+	document.getElementById("texto1").style.color="yellow";
+	document.getElementById("texto1").style.backgroundColor="green";
+}
+</script>
+<button type="button" onClick="myFunction1()">Click Me!</button>				
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page3">
+	<div data-role="header">
+		<h1>Segundo programa JavaScrip</h1>
+	</div>
+	<div data-role="content">	
+		<p>JavaScript puede cambiar un elemento HTML.</p>	
+    <button type="button" onClick="myFunction2()">Da click</button>
+    	<p id="texto2">Hola Mundo</p>
+   <script>
+    function myFunction2(){
+    document.getElementById("texto2").innerHTML="Hello World!";
+}
+	</script>			
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page4">
+<script>
+		$(document).on("pagecreate","page4",function(){
+			$("p").("tap",function (){
+				$(this).hide();
+			});
+		});
+</script>
+	<div data-role="header">
+		<h1>The Tap event</h1>
+	</div>
+	<div data-role="main" class="ui-content">	
+		<p>If you tap me, I will disapear.</p>
+        <p>Tap me away!</p>
+        <p>Tap me too!</p>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page5">
+	<style>
+		div { color::blue;}
+		span{color::red;}
+		</style>
+	<div data-role="header">
+		<h1>Agregar texto</h1>
+	</div>
+	<div data-role="content">	
+    
+
+    <style>
+	   div{
+		   margin:5px;
+		   background:yellow;
+	   }
+	   button{
+		   margin:5px;
+		   font-size:14px;
+	   }
+	   p{
+		   margin:5px;
+		   color:blue;
+	   }
+	   span{
+		   color:red;
+	   }
+       </style>
+		<div>
+        The values stored were
+        <span></span>
+        and
+        <span></span>
+        </div>
+        <script>
+		$("div").data("test",{first:16, last:"pizza!"});
+		$("span:first").text($("div").data("test").first);
+		$("span:last").text($("div").data("test").last);
+		
+		</script>			
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page6">
+	<div data-role="header">
+		<h1>Botones</h1>
+	</div>
+	<div data-role="content">	
+	<div>Botones:</div>	
+    <button>"1"</button>
+    <button>"2"</button>
+    <button>"3"</button>
+    <button>"4"</button>
+    <p> El número es: <span id="numero">?</span></p>
+    <script>
+	$("button").click(function(){
+		var value;
+		
+		switch ($("button").index(this)){
+			case 2:
+			value = $("div").data("blah");
+			value = "Uno";
+			break;
+			case 3:
+			value = $("div").data("blah");
+			value = "Dos";
+			break;
+			case 4:
+			value = $("div").data("blah");
+			value = "Tres";
+			break;
+			case 5:
+			value = $("div").data("blah");
+			value = "Cuatro";
+			break;
+		}
+		$(numero).text(""+value);
+	});
+	</script>		
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page7">
+	<div data-role="header">
+		<style>
+div{ color:red;}
+</style>
+	<div data-role="header">
+		<h1>Selección</h1>
+	</div>
+	<div data-role="content">	
+    
+		<select name="sweets" multiple"multiple">
+        <option>chocolate</option>
+        <option selected="selected"> candy </option>
+        <option> taffy </option>
+        <option selected="selected"> caramel </option>
+        <option> funge </option>
+        <option>cookie </option>
+        </select>
+        
+        <div id="texto"></div>
+        
+        <script>
+		$("select").change(function (){
+			var str="";
+			$("select option:selected").each(function () {
+				str += $(this).text()+"";
+            });
+			$(texto).text(str);
+		})
+		.change()
+		</script>		
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+</body>
+</html>
